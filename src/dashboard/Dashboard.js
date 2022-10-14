@@ -1,7 +1,6 @@
-import { View, Text, StyleSheet, FlatList, Dimensions, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Dimensions, TouchableOpacity,Image } from 'react-native'
 import React from 'react'
 import { COLORS } from '../constants/Global'
-
 
 const data = [
   { id:'1', chapterName:'Chapter-1'},
@@ -10,13 +9,21 @@ const data = [
   { id:'4', chapterName:'Chapter-4'},
   { id:'5', chapterName:'Chapter-5'},
 ]
+const cardWidth = Dimensions.get('window').width/2.3;
+
 const Dashboard = ({navigation}) => {  
 
   const chaptersContainer = ({item}) => {
     return(
-      <TouchableOpacity style={styles.card} onPress={()=>navigation.navigate('ChapterScreen')}>
-        <Text style={styles.chapterTitle}>{item.chapterName}</Text>
+      <View style={styles.contentCard}>
+      <TouchableOpacity onPress={()=>navigation.navigate('ChapterScreen')}>
+        <Image
+          style={styles.image}
+          source={require('../constants/images/11Tractor.png')}
+        />
       </TouchableOpacity>
+      <Text style={styles.chapterTitle}>Tractor introduction</Text>
+      </View>
   )}
 
   return (
@@ -45,21 +52,27 @@ const styles = StyleSheet.create({
       paddingHorizontal:10,
       justifyContent:'space-between'
     },
-    card:{
-      borderWidth:1,
-      borderColor:COLORS.gray,
-      backgroundColor:COLORS.white,
-      padding:20,
-      borderRadius:10,
-      width:Dimensions.get('window').width/2.2,
+    image:{
+      width: cardWidth,
       height:100,
       justifyContent:'center',
-      margin:2
+      borderTopLeftRadius:10,
+      borderTopRightRadius:10,
+    },
+    contentCard:{
+      width: cardWidth,
+      flexDirection:'column',
+      marginVertical:10,
+      borderWidth:1,
+      borderColor:COLORS.gray,
+      opacity:6,
+      borderRadius:10,
     },
     chapterTitle:{
-      textAlign:'center',
       textTransform:'capitalize',
-      fontSize:18,
+      letterSpacing:1,
+      fontWeight:'bold',
+      padding:5,
     },
 })
 
