@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import Dashboard from './src/dashboard/Dashboard';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ChapterScreen from './src/chapterContent/ChapterScreen';
-import LoginScreen from './src/auth/LoginScreen';
+import Dashboard from './src/screens/Dashboard';
+import LoginScreen from './src/screens/auth/LoginScreen';
 import { COLORS } from './src/constants/Global';
-import RegisterScreen from './src/auth/RegisterScreen';
+import RegisterScreen from './src/screens/auth/RegisterScreen';
+import CourseScreen from './src/screens/CourseScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
 
@@ -19,10 +21,17 @@ export default function App() {
           contentStyle:{backgroundColor: COLORS.white}
         }}      
       >
-        <Stack.Screen name="Login" component={LoginScreen} options={{title:'Sign in'}} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}} />
         <Stack.Screen name="Register" component={RegisterScreen} options={{title:'Register',headerBackVisible:false}} />
-        <Stack.Screen name="Dashboard" component={Dashboard} options={{title:'Tractology'}} />
-        <Stack.Screen name="ChapterScreen" component={ChapterScreen} options={{title:'Tractology'}} />
+        <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown:false}} />
+        <Stack.Screen name="CourseScreen" component={CourseScreen} options={{headerShown:false}} />
+        <Stack.Screen name="Profile" 
+          component={ProfileScreen} 
+          options={{
+            title: 'Profile',
+            headerBackVisible:false,
+          }}  
+        />
       </Stack.Navigator>
     </NavigationContainer>
     
