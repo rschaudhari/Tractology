@@ -6,35 +6,28 @@ import {
 	TouchableOpacity,
 	Dimensions,
 	ScrollView,
-	KeyboardAvoidingView
+	KeyboardAvoidingView,
+	Image
 } from 'react-native'
 import React from 'react'
-import { COLORS } from '../constants/Global'
+import { COLORS } from '../../constants/Global'
 
-const RegisterScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => {
 	return (
-		<ScrollView style={styles.container}>
+		<ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+			<View style={{marginTop:55}}>
+				<Image 
+				  source={require('../../constants/images/tract_trans.png')} 
+				  style={{height: 200, width:'100%'}}
+				/>
+			</View>
 			<KeyboardAvoidingView keyboardVerticalOffset={100}>
 				<View style={styles.mainView}>
 					<View style={styles.inputContainer}>
-						<Text style={styles.label}>Email</Text>
+						<Text style={styles.label}>Email/Username</Text>
 						<TextInput
 							style={styles.input}
 							placeholder='Email'
-						/>
-					</View>
-                    <View style={styles.inputContainer}>
-						<Text style={styles.label}>Name</Text>
-						<TextInput
-							style={styles.input}
-							placeholder='Name'
-						/>
-					</View>
-                    <View style={styles.inputContainer}>
-						<Text style={styles.label}>City</Text>
-						<TextInput
-							style={styles.input}
-							placeholder='City'
 						/>
 					</View>
 					<View style={styles.inputContainer}>
@@ -44,23 +37,17 @@ const RegisterScreen = ({ navigation }) => {
 							placeholder='Password'
 						/>
 					</View>
-                    <View style={styles.inputContainer}>
-						<Text style={styles.label}>Confirm Password</Text>
-						<TextInput
-							style={styles.input}
-							placeholder='Confirm Password'
-						/>
-					</View>
+					<Text style={styles.passwordLink}>Forgot Password</Text>
 					<TouchableOpacity style={styles.btnContainer} onPress={() => navigation.navigate('Dashboard')}>
-						<Text style={styles.btnText}>Register</Text>
+						<Text style={styles.btnText}>Sign in</Text>
 					</TouchableOpacity>
 					<View style={styles.dividerContainer}>
 						<View style={styles.divider} />
 						<Text style={styles.dividerTxt}>OR</Text>
 						<View style={styles.divider} />
 					</View>
-					<TouchableOpacity style={styles.registerContainer} onPress={()=>navigation.navigate('Login')}>
-						<Text style={styles.registerText}>Already user? Login</Text>
+					<TouchableOpacity style={styles.registerContainer} onPress={()=>navigation.navigate('Register')}>
+						<Text style={styles.registerText}>Register to Tractology</Text>
 					</TouchableOpacity>
 				</View>
 			</KeyboardAvoidingView>
@@ -73,8 +60,8 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	mainView: {
-		marginTop: 50,
-        marginHorizontal:10
+		marginTop: 55,
+		marginHorizontal:10
 	},
 	inputContainer: {
 		marginVertical: 10,
@@ -139,4 +126,4 @@ const styles = StyleSheet.create({
 		color: COLORS.primary
 	},
 })
-export default RegisterScreen;
+export default LoginScreen;
