@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import courses from '../constants/courses';
+import { COLORS } from '../constants/Global';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -26,7 +27,9 @@ const HomeScreen = ({ navigation }) => {
       >
         <ImageBackground
           source={course.image}
-          style={styles.cardImageBackground}>
+          style={styles.cardImageBackground}
+          blurRadius={3}
+          >
           <Text
             style={styles.cardChapterHeading}>
             {course.name}
@@ -42,20 +45,20 @@ const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView
       style={styles.container}>
-      <View style={{marginTop:55}}>
+      <View style={{marginTop:10}}>
         <TouchableOpacity 
           onPress={()=>navigation.navigate('Profile')}
           style={{alignSelf:'flex-end', marginBottom:10}}>
           <Image
-            style={{height: 40, width: 40, marginRight: 20}}
+            style={styles.profileImage}
             source={require('../constants/images/person.png')}
           />
         </TouchableOpacity>
         <View
           style={styles.searchContainer}>
-          <Ionicons size={20} name="search" />
+          <Ionicons size={20} name="search"/>
           <TextInput
-            style={{ fontSize: 16, marginLeft: 5 }}
+            style={styles.searchInput}
             placeholder="Search for anything"
           />
         </View>
@@ -79,15 +82,24 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
   },
+  profileImage:{
+    height: 40, 
+    width: 40, 
+    marginRight: 20
+  },
   searchContainer: {
-    height: 40,
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingVertical:8,
     paddingLeft: 15,
     backgroundColor: '#F5F5F7',
     borderRadius: 30,
     alignItems: 'center',
     flexDirection: 'row',
+  },
+  searchInput:{
+    width: '70%',
+    fontSize: 16,
+    marginLeft: 5,
+    fontFamily:'Regular' 
   },
   cardImageBackground: {
     marginVertical: 10,
@@ -102,18 +114,18 @@ const styles = StyleSheet.create({
   },
   mainChapterText: {
     fontSize: 20,
-    fontWeight: 'bold',
-    marginVertical: 10
+    marginVertical: 10,
+    fontFamily:'Bold' 
   },
   cardChapterHeading: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'Bold',
     paddingBottom: 5,
   },
   cardSubChapterHeading: {
-    color: '#000000',
-    fontWeight: '600'
-  }
+    color: COLORS.black,
+    fontFamily: 'SemiBold',
+   }
 })
 
 export default HomeScreen;

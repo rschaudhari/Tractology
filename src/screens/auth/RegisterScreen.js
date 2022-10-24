@@ -14,6 +14,9 @@ import { COLORS } from '../../constants/Global'
 const RegisterScreen = ({ navigation }) => {
 	return (
 		<ScrollView style={styles.container}>
+			<View style={styles.mainTextContainer}>
+				<Text style={styles.mainText}>Register</Text>
+			</View>
 			<KeyboardAvoidingView keyboardVerticalOffset={100}>
 				<View style={styles.mainView}>
 					<View style={styles.inputContainer}>
@@ -73,8 +76,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	mainView: {
-		marginTop: 50,
-        marginHorizontal:10
+  	marginHorizontal:10
 	},
 	inputContainer: {
 		marginVertical: 10,
@@ -87,11 +89,12 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		borderColor: COLORS.gray,
 		color: COLORS.black,
+		fontFamily:'Regular'
 	},
 	label: {
-		fontWeight: '700',
 		paddingLeft: 8,
 		marginBottom: 5,
+		fontFamily:'Bold'
 	},
 	btnContainer: {
 		marginTop: 20,
@@ -104,12 +107,14 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		letterSpacing: 1.2,
 		textTransform: 'uppercase',
-		color: COLORS.white
+		color: COLORS.white,
+		fontFamily:'Regular'
 	},
 	passwordLink: {
 		fontSize: 12,
 		color: COLORS.primary,
 		textAlign: 'right',
+		fontFamily: 'Bold'
 	},
 	divider: {
 		backgroundColor: COLORS.darkGray,
@@ -120,7 +125,8 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		paddingHorizontal: 5,
 		alignSelf: 'center',
-		color: COLORS.darkGray
+		color: COLORS.darkGray,
+		fontFamily: 'Bold'
 	},
 	dividerContainer: {
 		marginTop: 20,
@@ -136,7 +142,16 @@ const styles = StyleSheet.create({
 		letterSpacing: 1.5,
 		textTransform: 'uppercase',
 		textAlign: 'center',
-		color: COLORS.primary
+		color: COLORS.primary,
+		fontFamily: 'Bold',
+	},
+	mainTextContainer:{
+		alignItems:'center',
+		marginVertical:20,
+	},
+	mainText:{
+		fontSize:22,
+		fontFamily: 'Bold',
 	},
 })
 export default RegisterScreen;

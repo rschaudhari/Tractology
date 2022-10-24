@@ -7,13 +7,16 @@ const ProfileScreen = ({ navigation }) => {
 	useLayoutEffect(() => {
 		navigation.setOptions({
 			headerLeft:()=>(
-					<Ionicons size={28} name="chevron-back-outline" onPress={() => navigation.goBack()} />
-				)
+				<Ionicons size={26} name="chevron-back-outline" onPress={() => navigation.goBack()} />
+			),
+			headerTitle:()=>(
+				<Text style={styles.headerText}>Profile</Text>
+			)
 		});
 	}, [])
 	return (
 		<SafeAreaView style={styles.container}>
-			<View style={{ marginTop: 55 }}>
+			<View>
 				<TouchableOpacity
 					onPress={() => navigation.navigate('Profile')}
 					style={{ alignSelf: 'center', marginBottom: 10 }}>
@@ -60,6 +63,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingHorizontal: 20,
 	},
+	headerText:{
+		fontSize:20,
+		fontFamily: 'Bold'
+	},
 	inputContainer: {
 		marginVertical: 6,
 	},
@@ -71,24 +78,12 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		borderColor: COLORS.gray,
 		color: COLORS.black,
+		fontFamily: 'Regular',
 	},
 	label: {
-		fontWeight: '700',
+		fontFamily: 'Bold',
 		paddingLeft: 8,
 		marginBottom: 5,
-	},
-	btnContainer: {
-		marginTop: 20,
-		backgroundColor: COLORS.secondary,
-		padding: 10,
-		borderRadius: 10,
-		alignItems: 'center',
-	},
-	btnText: {
-		fontSize: 18,
-		letterSpacing: 1.2,
-		textTransform: 'uppercase',
-		color: COLORS.white
 	},
 })
 export default ProfileScreen;
