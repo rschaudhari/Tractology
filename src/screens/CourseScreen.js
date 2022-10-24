@@ -19,7 +19,7 @@ const CourseScreen = ({ route, navigation }) => {
 				<Text style={styles.courseIndex}>
 					{'0' + (index + 1)}
 				</Text>
-				<TouchableOpacity style={styles.courseTitleContainer}>
+				<TouchableOpacity style={styles.courseTitleContainer} onPress={()=>navigation.navigate('CourseContent')}>
 					<Text style={styles.courseName}>
 						{content.title}
 					</Text>
@@ -34,7 +34,7 @@ const CourseScreen = ({ route, navigation }) => {
 				source={data.image}
 				style={styles.imageContainer}>
 				<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-					<Ionicons size={28} name="chevron-back-outline" onPress={() => navigation.goBack()} />
+					<Ionicons size={26} name="chevron-back-outline" onPress={() => navigation.goBack()} />
 					<Text style={styles.chapterName}>
 						{data.name}
 					</Text>
@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
 	},
 	imageContainer: {
 		height: 400,
-		paddingTop: 40,
+		paddingTop: 20,
 	},
 	chapterName: {
 		fontSize: 25,
-		fontWeight: 'bold',
+		fontFamily: 'Bold',
 		paddingRight: 20,
 		paddingLeft: 20,
 	},
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 		marginHorizontal: 20,
 		fontSize: 21,
-		fontWeight: 'bold',
+		fontFamily: 'Bold',
 	},
 	courseListContainer: {
 		paddingHorizontal: 20,
@@ -93,12 +93,12 @@ const styles = StyleSheet.create({
 	},
 	courseIndex: {
 		fontSize: 40,
-		fontWeight: 'bold',
+		fontFamily: 'Bold',
 		color: '#E4E7F4'
 	},
 	courseName: {
 		fontSize: 18,
-		fontWeight: 'bold'
+		fontFamily: 'Bold',
 	},
 	courseTitleContainer: {
 		paddingHorizontal: 20

@@ -15,10 +15,10 @@ import { COLORS } from '../../constants/Global'
 const LoginScreen = ({ navigation }) => {
 	return (
 		<ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-			<View style={{marginTop:55}}>
-				<Image 
-				  source={require('../../constants/images/tract_trans.png')} 
-				  style={{height: 200, width:'100%'}}
+			<View style={{ marginTop: 55 }}>
+				<Image
+					source={require('../../constants/images/tract_trans.png')}
+					style={{ height: 200, width: '100%' }}
 				/>
 			</View>
 			<KeyboardAvoidingView keyboardVerticalOffset={100}>
@@ -46,7 +46,7 @@ const LoginScreen = ({ navigation }) => {
 						<Text style={styles.dividerTxt}>OR</Text>
 						<View style={styles.divider} />
 					</View>
-					<TouchableOpacity style={styles.registerContainer} onPress={()=>navigation.navigate('Register')}>
+					<TouchableOpacity style={styles.registerContainer} onPress={() => navigation.navigate('Register')}>
 						<Text style={styles.registerText}>Register to Tractology</Text>
 					</TouchableOpacity>
 				</View>
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 	},
 	mainView: {
 		marginTop: 55,
-		marginHorizontal:10
+		marginHorizontal: 10
 	},
 	inputContainer: {
 		marginVertical: 10,
@@ -74,11 +74,12 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		borderColor: COLORS.gray,
 		color: COLORS.black,
+		fontFamily:'Regular'
 	},
 	label: {
-		fontWeight: '700',
 		paddingLeft: 8,
 		marginBottom: 5,
+		fontFamily: 'Bold'
 	},
 	btnContainer: {
 		marginTop: 20,
@@ -91,12 +92,14 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		letterSpacing: 1.2,
 		textTransform: 'uppercase',
-		color: COLORS.white
+		color: COLORS.white,
+		fontFamily:'Regular'
 	},
 	passwordLink: {
-		fontSize: 12,
+		fontSize: 14,
 		color: COLORS.primary,
 		textAlign: 'right',
+		fontFamily:'Regular'
 	},
 	divider: {
 		backgroundColor: COLORS.darkGray,
@@ -107,7 +110,8 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		paddingHorizontal: 5,
 		alignSelf: 'center',
-		color: COLORS.darkGray
+		color: COLORS.darkGray,
+		fontFamily:'Bold'
 	},
 	dividerContainer: {
 		marginTop: 20,
@@ -123,7 +127,8 @@ const styles = StyleSheet.create({
 		letterSpacing: 1.5,
 		textTransform: 'uppercase',
 		textAlign: 'center',
-		color: COLORS.primary
+		color: COLORS.primary,
+		fontFamily:'Bold'
 	},
 })
 export default LoginScreen;
